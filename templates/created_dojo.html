@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Created Page</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Displaying submitted Info</h1>
+        <p>Name: {{ request.form['name'] }}</p>
+        <p>Email: {{ request.form['email'] }}</p>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <p>Dojo Location: {{ request.form['location'] }}</p>
+        <p>Favorite Language: {{ request.form['language'] }}</p>
+        <p>Comments: {{ request.form['comments'] }}</p>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <a class = 'btn btn-secondary' href="/">Go Back</a>
+    </div>
+    
+</body>
+</html>
